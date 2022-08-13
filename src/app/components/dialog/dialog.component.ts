@@ -22,7 +22,7 @@ export class DialogComponent implements OnInit {
     });
   }
 
-  addProduct():void{
+  addProduct(){
     console.log(this.ProductForm.value)
   }
 }
