@@ -8,15 +8,6 @@
       "comment": "This is firt product create",
       "date": "2022-08-08T05:00:00.000Z",
       "id": 1
-    },
-    {
-      "productName": "Mango",
-      "category": "vegetables",
-      "freshness": "Brand New",
-      "price": 50000,
-      "comment": "This is second product",
-      "date": "2022-08-09T05:00:00.000Z",
-      "id": 2
     }
   ],
   "comments": [

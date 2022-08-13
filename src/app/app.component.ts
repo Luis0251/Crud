@@ -65,6 +65,7 @@ constructor(private dialog : MatDialog, private api:ApiService){
     this.api.deleteProduct(id).subscribe({
       next:(res)=>{
         alert('Product Delete Success')
+        this.getAllProducts();
       },
       error:(err)=>{
         alert('Product Delete Error')
