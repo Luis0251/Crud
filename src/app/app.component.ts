@@ -61,4 +61,14 @@ constructor(private dialog : MatDialog, private api:ApiService){
       this.dataSource.paginator.firstPage();
     }
   }
+  deleteProduct(id:number){
+    this.api.deleteProduct(id).subscribe({
+      next:(res)=>{
+        alert('Product Delete Success')
+      },
+      error:(err)=>{
+        alert('Product Delete Error')
+      }
+    })
+  }
 }
