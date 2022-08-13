@@ -14,4 +14,10 @@ export class ApiService {
   getProduct(){
     return this.http.get<any>(`${this.API_URL}`);
   }
+  putProduct(data: any , id: number){
+    return this.http.put<any>(`${this.API_URL}`+id,data);
+  }
+  deleteProduct(id: number){
+    return this.http.delete<any>(`${this.API_URL}`+id);
+  }
 }

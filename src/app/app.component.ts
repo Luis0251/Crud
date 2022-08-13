@@ -14,7 +14,7 @@ import {MatSort} from '@angular/material/sort';
 })
 export class AppComponent implements OnInit {
   title = 'Crud';
-  displayedColumns: string[] = ['productName', 'category','freshness','date', 'price', 'comment'];
+  displayedColumns: string[] = ['productName', 'category','freshness','date', 'price', 'comment','action'];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -24,7 +24,11 @@ constructor(private dialog : MatDialog, private api:ApiService){
   openDialog() {
     this.dialog.open(DialogComponent,{
      width:'30%'
-    });
+    }).afterClosed().subscribe(val=>{
+      if(val==='save'){
+        this.getAllProducts();
+      }
+    })
   }
   ngOnInit(): void {
       this.getAllProducts();
@@ -41,6 +45,13 @@ constructor(private dialog : MatDialog, private api:ApiService){
       alert('error while fetching products');
     }
   })
+  }
+  editProduct(row:any){
+    this.dialog.open(DialogComponent,{width:'30%',data:row}).afterClosed().subscribe(val=>{
+      if(val==='update'){
+        this.getAllProducts();
+      }
+    })
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
